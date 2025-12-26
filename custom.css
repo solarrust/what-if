@@ -1,0 +1,424 @@
+/* ===========================================
+   Тёмная новогодняя тема для презентации
+   What? if()? — Tbilisi JS 2025
+   =========================================== */
+
+/* Основные переменные */
+:root {
+	--dark-bg: #0d1117;
+	--dark-surface: #161b22;
+	--dark-border: #30363d;
+	--text-color: #f0f6fc;        /* Единый цвет текста */
+	--accent-red: #e63946;        /* Рождественский красный */
+	--accent-green: #2ea043;      /* Ёлочный зелёный */
+	--code-bg: #1f2428;
+	--code-text: #a5d6ff;
+}
+
+/* Базовые стили слайдов */
+.shower {
+	--color-key: var(--accent-red);
+}
+
+.slide {
+	background: var(--dark-bg);
+	color: var(--text-color);
+}
+
+.slide::after {
+	background: var(--accent-red);
+}
+
+.slide h2 {
+	color: var(--text-color);
+	font-size: 48px;
+}
+
+.slide p {
+	color: var(--text-color);
+}
+
+.slide a {
+	color: var(--accent-green);
+	text-decoration: none;
+	border-bottom: 1px solid var(--accent-green);
+}
+
+.slide a:hover {
+	color: var(--accent-red);
+	border-color: var(--accent-red);
+}
+
+/* Списки */
+.slide ul,
+.slide ol {
+	color: var(--text-color);
+}
+
+.slide li {
+	margin-bottom: 0.5em;
+}
+
+.slide li::marker {
+	color: var(--accent-red);
+}
+
+/* Код */
+.slide code {
+	background: var(--code-bg);
+	color: var(--code-text);
+	padding: 0.1em 0.4em;
+	border-radius: 4px;
+	font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.slide pre {
+	background: var(--dark-surface);
+	border: 1px solid var(--dark-border);
+	border-radius: 8px;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	padding: 1em !important;
+}
+
+.slide pre code {
+	background: transparent !important;
+	margin-left: 0 !important;
+	padding-left: 2.5em !important;
+	width: 100% !important;
+	color: var(--code-text);
+	font-size: 20px;
+}
+
+.slide pre code::before {
+	color: var(--text-color) !important;
+	opacity: 0.4 !important;
+}
+
+.slide pre mark {
+	background: var(--accent-red) !important;
+	color: white !important;
+	border-radius: 2px;
+	padding: 0 4px;
+	margin: 0 !important;
+}
+
+.slide pre .comment {
+	color: #6e7681 !important;
+	font-style: italic;
+}
+
+/* Титульный слайд */
+#cover {
+	background: var(--dark-bg);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#cover h2 {
+	font-size: 100px;
+	margin: 0;
+	color: var(--text-color);
+}
+
+#cover .subtitle {
+	font-size: 36px;
+	color: var(--text-color);
+	margin-top: 20px;
+}
+
+#cover .event {
+	font-size: 24px;
+	color: var(--accent-green);
+	margin-top: 40px;
+}
+
+#cover .snowflakes {
+	font-size: 48px;
+	margin-top: 40px;
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+}
+
+#cover .snowflakes .flake {
+	display: inline-block;
+	animation: rotate 8s linear infinite;
+	transition: animation-duration 0.3s ease;
+	cursor: default;
+}
+
+#cover .snowflakes .flake:nth-child(1) { color: var(--accent-red); }
+#cover .snowflakes .flake:nth-child(2) { color: var(--text-color); animation-duration: 10s; }
+#cover .snowflakes .flake:nth-child(3) { color: var(--accent-green); animation-duration: 6s; }
+#cover .snowflakes .flake:nth-child(4) { color: var(--text-color); animation-duration: 12s; }
+#cover .snowflakes .flake:nth-child(5) { color: var(--accent-red); animation-duration: 7s; }
+
+
+#cover .snowflakes .flake.spin-left {
+	animation-name: rotate-left;
+	animation-duration: 1.5s !important;
+}
+
+#cover .snowflakes .flake.spin-right {
+	animation-name: rotate-right;
+	animation-duration: 1.5s !important;
+}
+
+#cover code {
+  background: transparent;
+  color: currentColor;
+  font-size: 0.8em;
+}
+
+@keyframes rotate {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-left {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(-360deg); }
+}
+
+@keyframes rotate-right {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes sparkle {
+	0%, 100% { opacity: 0.6; }
+	50% { opacity: 1; }
+}
+
+/* Слайд "Обо мне" */
+#about .avatar {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 4px solid var(--accent-green);
+	object-fit: cover;
+}
+
+#about .columns {
+	align-items: center;
+}
+
+#about .social-links {
+	display: flex;
+	gap: 16px;
+	margin-top: 20px;
+}
+
+#about .social-links a {
+	color: var(--text-color);
+	border: none;
+	transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#about .social-links a:hover {
+	color: var(--accent-green);
+	transform: scale(1.2);
+}
+
+/* Большой текст */
+.big {
+	font-size: 36px !important;
+	color: var(--text-color) !important;
+	line-height: 1.4;
+}
+
+.shout-text {
+	font-size: 72px !important;
+	text-align: center;
+}
+
+/* Предупреждение */
+.warning {
+	background: rgba(196, 30, 58, 0.2);
+	border-left: 4px solid var(--accent-red);
+	padding: 0.5em 1em;
+	color: var(--accent-red) !important;
+	font-size: 32px !important;
+}
+
+/* Примечание */
+.note {
+	background: rgba(46, 160, 67, 0.1);
+	border-left: 4px solid var(--accent-green);
+	padding: 0.5em 1em;
+	margin-top: 1em;
+	color: var(--accent-green) !important;
+}
+
+/* Shout слайды */
+.slide .shout {
+	color: var(--text-color);
+}
+
+.slide .shout.shrink {
+	font-size: 72px;
+}
+
+/* Финальный слайд */
+#final {
+	background: var(--dark-bg);
+}
+
+#final h2 {
+	font-size: 120px;
+	color: var(--accent-green);
+}
+
+#final .final-text {
+	position: absolute;
+	bottom: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 36px;
+	color: var(--accent-red) !important;
+}
+
+/* Контакты */
+#contacts .big {
+	color: var(--accent-red) !important;
+}
+
+/* Колонки */
+.columns.two {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2em;
+}
+
+/* Прогресс-бар */
+.shower .progress {
+	height: 2px !important;
+}
+
+.shower .progress::before {
+	background: snow;
+}
+
+.santa-sleigh {
+	position: fixed;
+  width: 40px;
+  height: auto;
+	bottom: -15px;
+	left: 0;
+	z-index: 9999;
+	pointer-events: none;
+  translate: calc(-100% - 10px);
+	transition: left 0.3s ease;
+}
+
+.santa-sleigh img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Скрываем в режиме списка */
+.shower.list .santa-sleigh {
+	display: none;
+}
+
+.shower.full .santa-sleigh {
+	display: block;
+}
+
+/* Бейдж */
+.badge {
+	background: var(--accent-red);
+}
+
+.badge a {
+	color: white !important;
+	border: none !important;
+}
+
+/* Caption */
+.caption {
+	color: var(--text-color);
+}
+
+.caption h1 {
+	color: var(--text-color);
+}
+
+.caption a {
+	color: var(--accent-green);
+}
+
+/* Декоративные снежинки для слайдов */
+.slide::before {
+	content: '❄';
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	font-size: 24px;
+	opacity: 0.3;
+	color: var(--text-color);
+}
+
+#cover::before,
+#final::before {
+	content: none;
+}
+
+/* Таблицы */
+.slide table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.slide th,
+.slide td {
+	border: 1px solid var(--dark-border);
+	padding: 0.5em 1em;
+	text-align: left;
+}
+
+.slide th {
+	background: var(--dark-surface);
+	color: var(--accent-green);
+}
+
+.slide td {
+	color: var(--text-color);
+}
+
+/* Адаптация стандартных элементов Ribbon */
+.slide blockquote {
+	border-left: 4px solid var(--accent-red);
+	padding-left: 1em;
+	color: var(--text-color);
+	font-style: italic;
+}
+
+.slide figcaption {
+	color: var(--text-color);
+	font-size: 0.8em;
+}
+
+.slide.active .next.active {
+	opacity: 1;
+}
+
+/* Демо-фреймы */
+.demo-frame {
+	width: 100%;
+	height: 400px;
+	border: 1px solid var(--dark-border);
+	border-radius: 8px;
+	background: var(--dark-surface);
+}
+
+.demo-frame.resizable {
+	resize: horizontal;
+	overflow: auto;
+	min-width: 200px;
+	max-width: 100%;
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo: Темы с if()</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		:root {
+			--theme: light;
+
+			--bg: if(
+				style(--theme: dark): #0d1117;
+				style(--theme: pink): #fdf2f8;
+				else: #ffffff;
+			);
+
+			--text: if(
+				style(--theme: dark): #f0f6fc;
+				style(--theme: pink): #831843;
+				else: #1f2937;
+			);
+
+			--text-muted: if(
+				style(--theme: dark): #8b949e;
+				style(--theme: pink): #9d174d;
+				else: #6b7280;
+			);
+
+			--accent: if(
+				style(--theme: dark): #58a6ff;
+				style(--theme: pink): #ec4899;
+				else: #2563eb;
+			);
+
+			--card-bg: if(
+				style(--theme: dark): #161b22;
+				style(--theme: pink): #fce7f3;
+				else: #f3f4f6;
+			);
+
+			--border: if(
+				style(--theme: dark): #30363d;
+				style(--theme: pink): #fbcfe8;
+				else: #e5e7eb;
+			);
+
+			--success: if(
+				style(--theme: dark): #3fb950;
+				style(--theme: pink): #22c55e;
+				else: #16a34a;
+			);
+
+			--input-bg: if(
+				style(--theme: dark): #0d1117;
+				style(--theme: pink): #fff1f2;
+				else: #ffffff;
+			);
+
+			--shadow: if(
+				style(--theme: dark): rgba(0,0,0,0.3);
+				style(--theme: pink): rgba(236,72,153,0.1);
+				else: rgba(0,0,0,0.1);
+			);
+		}
+
+		body {
+			font-family: system-ui, sans-serif;
+			background: var(--bg);
+			color: var(--text);
+			min-height: 100vh;
+			padding: 16px;
+			transition: all 0.3s;
+		}
+
+		.controls {
+			display: flex;
+			gap: 6px;
+			margin-bottom: 16px;
+		}
+
+		button {
+			padding: 6px 12px;
+			border: 2px solid var(--accent);
+			background: transparent;
+			color: var(--accent);
+			border-radius: 6px;
+			cursor: pointer;
+			font-size: 12px;
+			transition: all 0.2s;
+		}
+
+		button:hover,
+		button.active {
+			background: var(--accent);
+			color: var(--bg);
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+		}
+
+		.card {
+			background: var(--card-bg);
+			padding: 14px;
+			border-radius: 10px;
+			border: 1px solid var(--border);
+			box-shadow: 0 2px 8px var(--shadow);
+			transition: all 0.3s;
+		}
+
+		.card h3 {
+			color: var(--accent);
+			margin-bottom: 8px;
+			font-size: 14px;
+		}
+
+		.card p {
+			font-size: 11px;
+			line-height: 1.4;
+			color: var(--text-muted);
+		}
+
+		.input-group {
+			display: flex;
+			gap: 8px;
+		}
+
+		input {
+			flex: 1;
+			padding: 8px 10px;
+			border: 1px solid var(--border);
+			border-radius: 6px;
+			background: var(--input-bg);
+			color: var(--text);
+			font-size: 12px;
+			transition: all 0.3s;
+		}
+
+		input:focus {
+			outline: none;
+			border-color: var(--accent);
+		}
+
+		.btn-primary {
+			background: var(--accent);
+			color: var(--bg);
+			border: none;
+			padding: 8px 14px;
+		}
+
+		.badge {
+			display: inline-block;
+			padding: 3px 8px;
+			border-radius: 12px;
+			font-size: 10px;
+			font-weight: 600;
+			background: var(--success);
+			color: white;
+			margin-right: 4px;
+		}
+
+		.badge.accent {
+			background: var(--accent);
+		}
+
+		.progress-bar {
+			height: 6px;
+			background: var(--border);
+			border-radius: 3px;
+			overflow: hidden;
+			margin-top: 8px;
+		}
+
+		.progress-bar .fill {
+			height: 100%;
+			width: 70%;
+			background: var(--accent);
+			border-radius: 3px;
+			transition: background 0.3s;
+		}
+
+		.avatar {
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			background: var(--accent);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		.user-row {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-top: 8px;
+		}
+
+		.user-info {
+			font-size: 12px;
+		}
+
+		.user-info .name {
+			font-weight: 600;
+			color: var(--text);
+		}
+
+		.user-info .role {
+			font-size: 10px;
+			color: var(--text-muted);
+		}
+	</style>
+</head>
+<body>
+	<div class="controls">
+		<button onclick="setTheme('light')" class="active">☀️ Light</button>
+		<button onclick="setTheme('dark')">🌙 Dark</button>
+		<button onclick="setTheme('pink')">🌸 Pink</button>
+	</div>
+
+	<div class="grid">
+		<div class="card">
+			<h3>📝 Форма</h3>
+			<div class="input-group">
+				<input type="text" placeholder="Введите текст...">
+				<button class="btn-primary">OK</button>
+			</div>
+		</div>
+
+		<div class="card">
+			<h3>🏷️ Бейджи</h3>
+			<span class="badge">Готово</span>
+			<span class="badge accent">Новое</span>
+			<div class="progress-bar"><div class="fill"></div></div>
+		</div>
+
+		<div class="card">
+			<h3>👤 Профиль</h3>
+			<div class="user-row">
+				<div class="avatar">A</div>
+				<div class="user-info">
+					<div class="name">Алёна</div>
+					<div class="role">Frontend Dev</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card">
+			<h3>💡 Идея</h3>
+			<p>Одна переменная --theme управляет всем интерфейсом!</p>
+		</div>
+	</div>
+
+	<script>
+		function setTheme(theme) {
+			document.documentElement.style.setProperty('--theme', theme);
+			document.querySelectorAll('.controls button').forEach(btn => {
+				btn.classList.toggle('active', btn.textContent.toLowerCase().includes(theme));
+			});
+		}
+	</script>
+</body>
+</html>

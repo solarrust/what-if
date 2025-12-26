@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo: Порядок условий — первый true</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: system-ui, sans-serif;
+			background: #0d1117;
+			color: #f0f6fc;
+			min-height: 100vh;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 20px;
+		}
+
+		.info {
+			font-size: 14px;
+			color: #8b949e;
+			text-align: center;
+			max-width: 300px;
+		}
+
+		.box {
+			width: 150px;
+			height: 150px;
+			border-radius: 12px;
+			/* Первое условие ВСЕГДА true — остальные игнорируются */
+			background-color: if(
+				media(width >= 0px): snow;
+				media(width >= 300px): green;
+				media(width >= 500px): red;
+			);
+		}
+
+		code {
+			background: #161b22;
+			padding: 12px 16px;
+			border-radius: 8px;
+			font-size: 12px;
+			display: block;
+			white-space: pre;
+			color: #8b949e;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<p class="info">Квадрат ВСЕГДА белый, потому что первое условие всегда true</p>
+	<code>background-color: if(
+  media(width >= 0px): snow;
+  media(width >= 300px): green;
+  media(width >= 500px): red;
+);</code>
+</body>
+</html>

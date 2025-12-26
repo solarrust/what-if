@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo: Каскад и if()</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: system-ui, sans-serif;
+			background: #0d1117;
+			color: #f0f6fc;
+			min-height: 100vh;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 24px;
+		}
+
+		.boxes {
+			display: flex;
+			gap: 24px;
+		}
+
+		.example {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.box {
+			width: 120px;
+			height: 120px;
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+		}
+
+		/* Пример 1: if() работает */
+		.box-if {
+			background-color: if(
+				media(width >= 0px): green;
+			);
+		}
+
+		/* Пример 2: каскад перебивает if() */
+		.box-cascade {
+			background-color: if(
+				media(width >= 0px): green;
+			);
+			background-color: red; /* Это правило перебьёт if()! */
+		}
+
+		code {
+			background: #161b22;
+			padding: 10px 14px;
+			border-radius: 8px;
+			font-size: 11px;
+			display: block;
+			white-space: pre;
+			color: #8b949e;
+			text-align: left;
+		}
+
+		.label {
+			font-size: 14px;
+			color: #f0f6fc;
+		}
+
+		.info {
+			font-size: 14px;
+			color: #8b949e;
+			text-align: center;
+			max-width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="boxes">
+		<div class="example">
+			<div class="box box-if"></div>
+			<span class="label">Только if()</span>
+			<code>background-color: if(
+  media(width >= 0): green;
+);</code>
+		</div>
+		<div class="example">
+			<div class="box box-cascade"></div>
+			<span class="label">if() + каскад</span>
+			<code>background-color: if(
+  media(width >= 0): green;
+);
+background-color: red; ← победил!</code>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo: Правильный порядок условий</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: system-ui, sans-serif;
+			background: #0d1117;
+			color: #f0f6fc;
+			min-height: 100vh;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 20px;
+			resize: horizontal;
+			overflow: auto;
+		}
+
+		.info {
+			font-size: 14px;
+			color: #8b949e;
+			text-align: center;
+		}
+
+		.box {
+			width: 150px;
+			height: 150px;
+			border-radius: 12px;
+			transition: background-color 0.3s;
+			/* Правильный порядок — от большего к меньшему */
+			background-color: if(
+				media(width >= 700px): red;
+				media(width >= 500px): green;
+				else: snow;
+			);
+		}
+
+		code {
+			background: #161b22;
+			padding: 12px 16px;
+			border-radius: 8px;
+			font-size: 12px;
+			display: block;
+			white-space: pre;
+			color: #8b949e;
+		}
+
+		.legend {
+			display: flex;
+			gap: 16px;
+			font-size: 12px;
+		}
+
+		.legend span {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.legend span::before {
+			content: '';
+			width: 16px;
+			height: 16px;
+			border-radius: 4px;
+		}
+
+		.legend .red::before { background: red; }
+		.legend .green::before { background: green; }
+		.legend .blue::before { background: snow; }
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="legend">
+		<span class="red">≥700px</span>
+		<span class="green">≥500px</span>
+		<span class="blue">&lt;500px</span>
+	</div>
+	<code>background-color: if(
+  media(width >= 700px): red;
+  media(width >= 500px): green;
+  else: snow;
+);</code>
+</body>
+</html>

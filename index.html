@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>What? if()? — Tbilisi JS 2025</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="icon" type="image/svg+xml" href="images/foxi.svg">
+	<link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+	<link rel="stylesheet" href="custom.css">
+	<style>
+		.shower {
+			--slide-ratio: calc(16 / 9);
+		}
+	</style>
+</head>
+<body class="shower list">
+
+	<header class="caption">
+		<h1>What? if()?</h1>
+		<p>Алёна Батицкая — Tbilisi JS, 28 декабря 2025</p>
+	</header>
+
+	<!-- Слайд 1: Титульный -->
+	<section class="slide title-slide" id="cover">
+		<h2>What? <code>if()?</code></h2>
+		<div class="snowflakes">
+			<span class="flake">❄</span>
+			<span class="flake">✦</span>
+			<span class="flake">❅</span>
+			<span class="flake">✧</span>
+			<span class="flake">❆</span>
+		</div>
+	</section>
+
+	<!-- Слайд 2: Обо мне -->
+	<section class="slide" id="about">
+		<h2>Обо мне</h2>
+		<div class="columns two">
+			<div>
+				<figure>
+					<img src="images/casual.png" alt="Алёна Батицкая" class="avatar">
+				</figure>
+			</div>
+			<div>
+				<p><strong>Алёна Батицкая</strong></p>
+				<ul>
+					<li>10 лет во фронтенде</li>
+					<li>Google Developer Expert по Web</li>
+					<li>Редактор в <a href="https://doka.guide" target="_blank" rel="noopener noreferrer">Доке</a></li>
+					<li>Пишу, перевожу, преподаю</li>
+				</ul>
+				<div class="social-links">
+					<a href="https://x.com/ABatickaya" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+					</a>
+					<a href="https://t.me/ABatickaya" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+					</a>
+					<a href="https://www.linkedin.com/in/alena-batitskaia/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Слайд 3: Что такое if() -->
+	<section class="slide">
+		<h2>Что такое <code>if()</code>?</h2>
+		<p class="big">Это CSS-функция, позволяющая задать свойству значение (или его часть) в зависимости от условий.</p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/if#types_of_if-tests">MDN</a>
+	</section>
+
+	<!-- Слайд 4: Поддержка браузерами -->
+	<section class="slide" id="support">
+		<h2>Поддержка в браузерах</h2>
+    <img src="images/baseline.jpg" alt="" style="width: 100%">
+		<p class="note">Chrome 137+</p>
+	</section>
+
+
+	<!-- Слайд 5: Базовый пример -->
+	<section class="slide" id="example-basic">
+		<h2>Базовый пример</h2>
+		<pre>
+			<code>.block {</code>
+			<code>  flex-direction: if(</code>
+			<code>    media(width &lt; 700px): column;</code>
+			<code>    else: row;</code>
+			<code>  )</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<!-- Слайд 6: Демо flex-direction -->
+	<section class="slide">
+		<h2>Демо: flex-direction</h2>
+		<iframe src="demos/flex-direction/index.html" class="demo-frame resizable"></iframe>
+	</section>
+
+	<!-- Слайд 7: Синтаксис -->
+	<section class="slide">
+		<h2>Синтаксис <code>if()</code></h2>
+		<ul>
+			<li>Пишем <code>if()</code> как значение свойства</li>
+			<li>Условия разделяем <code>;</code></li>
+			<li>Ветка <code>else</code> — по желанию</li>
+		</ul>
+	</section>
+
+	<!-- Слайд 8: Минимальный синтаксис -->
+	<section class="slide">
+		<h2>Минимальный синтаксис</h2>
+		<pre>
+			<code>background-image: if(); <span class="comment">/* пустое значение */</span></code>
+			<code class="next">background-color: if(else: yellow);</code>
+		</pre>
+		<p class="note next">Можно вкладывать if в if!</p>
+	</section>
+
+	<!-- Слайд 9: Три типа условий -->
+	<section class="slide">
+		<h2 class="shout shrink">Три типа условий</h2>
+	</section>
+
+	<!-- Слайд 10: style() -->
+	<section class="slide">
+		<h2>1. <code>style()</code></h2>
+		<p>Значение в зависимости от кастомной переменной (похоже на <code>@container style()</code>)</p>
+		<pre>
+			<code>color: if(</code>
+			<code>  style(--theme: dark): white;</code>
+			<code>  style(--theme: pink): gray;</code>
+			<code>  else: black;</code>
+			<code>)</code>
+		</pre>
+	</section>
+
+	<!-- Слайд 11: style() — ограничения -->
+	<section class="slide">
+		<h2><code>style()</code> — ограничения</h2>
+		<ul>
+			<li>Только кастомные переменные</li>
+			<li>Только строгое равенство</li>
+			<li class="next"><code>style(--angle < 45)</code> — ❌ не работает</li>
+		</ul>
+	</section>
+
+	<!-- Слайд 12: media() -->
+	<section class="slide">
+		<h2>2. <code>media()</code></h2>
+		<p>Всё как в <code>@media</code>, только для одного свойства</p>
+		<pre>
+			<code>media(min-width: 700px): white;</code>
+      <code class="comment">/* 🤝 */</code>
+			<code>media(width >= 700px): white;</code>
+		</pre>
+	</section>
+
+	<!-- Слайд 13: media() — примеры -->
+	<section class="slide">
+		<h2><code>media()</code> — примеры</h2>
+		<pre>
+			<code>color: if(media(print): black);</code>
+			<code>opacity: if(media(hover: hover): 0.8);</code>
+			<code>transition: if(media(prefers-reduced-motion): none);</code>
+		</pre>
+		<a href="https://doka.guide/css/media/">doka.guide/css/media/</a>
+	</section>
+
+	<!-- Слайд 14: supports() -->
+	<section class="slide">
+		<h2>3. <code>supports()</code></h2>
+		<p>Проверка поддержки CSS-фичи браузером</p>
+		<pre>
+			<code>display: if(</code>
+			<code>  supports(display: grid-lanes): grid-lanes;</code>
+			<code>  else: grid;</code>
+			<code>)</code>
+		</pre>
+	</section>
+
+	<!-- Слайд 15: Комбинирование условий -->
+	<section class="slide">
+		<h2>Комбинирование условий</h2>
+		<pre>
+			<code><span class="comment">/* ✅ Можно внутри одного типа */</span></code>
+			<code>style((--theme: dark) and (--user: admin)): red;</code>
+			<code> </code>
+			<code><span class="comment">/* ❌ Нельзя разные типы */</span></code>
+			<code>media(width < 700) and style(--user: admin): red;</code>
+		</pre>
+	</section>
+
+	<!-- Слайд 16: if() как часть значения -->
+	<section class="slide">
+		<h2><code>if()</code> как часть значения</h2>
+		<pre>
+			<code>border: 3px solid if(</code>
+			<code>  media(width > 700px): red;</code>
+			<code>  else: green;</code>
+			<code>);</code>
+		</pre>
+	</section>
+
+	<!-- Слайд 17: Демо if() как часть значения -->
+	<section class="slide">
+		<h2>Демо: <code>if()</code> в border</h2>
+		<iframe src="demos/partial-value/index.html" class="demo-frame resizable"></iframe>
+	</section>
+
+	<!-- Слайд 18: Порядок важен -->
+	<section class="slide">
+		<h2 class="shout shrink">Порядок важен!</h2>
+	</section>
+
+	<!-- Слайд 19: Порядок условий -->
+	<section class="slide">
+		<h2>Порядок условий</h2>
+		<p class="big">Сработает <strong>первое</strong> правило, вернувшее <code>true</code></p>
+		<p>Не стоящее последним, как в каскаде!</p>
+	</section>
+
+	<!-- Слайд 20: Демо — неправильный порядок -->
+	<section class="slide">
+		<h2>Демо: первое условие побеждает</h2>
+		<iframe src="demos/order-first-wins/index.html" class="demo-frame resizable"></iframe>
+	</section>
+
+	<!-- Слайд 21: Демо — правильный порядок -->
+	<section class="slide">
+		<h2>Демо: правильный порядок</h2>
+		<iframe src="demos/order-correct/index.html" class="demo-frame resizable"></iframe>
+	</section>
+
+	<!-- Слайд 22: Каскад -->
+	<section class="slide">
+		<h2>А что с каскадом?</h2>
+		<p class="big">Каскад — это база 💪</p>
+		<p>Нижестоящее правило перебьёт <code>if()</code></p>
+		<p class="note"><code>if()</code> вычисляется в значение, веса не добавляет</p>
+	</section>
+
+	<!-- Слайд 23: Демо каскада -->
+	<section class="slide">
+		<h2>Демо: каскад и <code>if()</code></h2>
+		<iframe src="demos/cascade/index.html" class="demo-frame"></iframe>
+	</section>
+
+	<!-- Слайд 24: Фоллбэк -->
+	<section class="slide">
+		<h2>Фоллбэк</h2>
+		<pre>
+			<code>.element {</code>
+			<code>  color: black; <span class="comment">/* фоллбэк */</span></code>
+			<code>  color: if(</code>
+			<code>    style(--theme: dark): navy;</code>
+			<code>    else: snow;</code>
+			<code>  );</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<!-- Слайд 25: if() + другие функции -->
+	<section class="slide">
+		<h2><code>if()</code> + другие функции</h2>
+		<pre>
+			<code>width: calc(if(</code>
+			<code>  style(--mode: compact): 50%;</code>
+			<code>  else: 80%;</code>
+			<code>) - 2em);</code>
+		</pre>
+		<p class="note">Главное не запутаться в скобках =)</p>
+	</section>
+
+	<!-- Слайд 26: Зачем нужен if()? -->
+	<section class="slide">
+		<h2>Зачем нужен <code>if()</code>?</h2>
+		<p>«У нас же уже есть <code>@media</code>, <code>@container</code>...»</p>
+		<ul>
+			<li class="next">Директива может быть далеко от правил</li>
+			<li class="next">Нужно следить за порядком файлов</li>
+			<li class="next">Иногда меняем одно свойство — удобнее писать в одном месте</li>
+		</ul>
+	</section>
+
+	<!-- Слайд 27: Юзкейс — темы -->
+	<section class="slide">
+		<h2>Идеально для тем!</h2>
+    <p>Все условия в одном месте!</p>
+		<pre>
+			<code>:root {</code>
+			<code>  --bg: if(</code>
+			<code>    style(--theme: dark): #0d1117;</code>
+			<code>    style(--theme: pink): #fdf2f8;</code>
+			<code>    else: #ffffff; <span class="comment">/* light */</span></code>
+			<code>  );</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<!-- Слайд 28: Демо тем -->
+	<section class="slide">
+		<h2>Демо: темы с <code>if()</code></h2>
+		<iframe src="demos/themes/index.html" class="demo-frame"></iframe>
+	</section>
+	<!-- Слайд 29: Вектор развития CSS -->
+	<section class="slide">
+		<h2>Вектор развития CSS</h2>
+		<p class="big">От фиксированных → к вычисляемым значениям</p>
+	</section>
+
+	<!-- Слайд 30: Новые функции CSS -->
+	<section class="slide">
+		<h2>Новые функции CSS</h2>
+		<div class="columns two">
+			<ul>
+				<li><code>calc()</code></li>
+				<li><code>clamp()</code></li>
+				<li><code>minmax()</code></li>
+			</ul>
+			<ul>
+				<li><code>color()</code></li>
+				<li><code>currentColor</code></li>
+				<li><code>fit-content</code></li>
+			</ul>
+		</div>
+		<p>CSS становится более декларативным</p>
+	</section>
+
+	<!-- Слайд 31: Почему не JS? -->
+	<section class="slide">
+		<h2>Почему не JS?</h2>
+		<p class="big">Мухи отдельно, котлеты отдельно 🍔</p>
+		<ul>
+			<li>HTML — семантика и контент</li>
+			<li>CSS — стили</li>
+			<li>JS — логика</li>
+		</ul>
+	</section>
+
+	<!-- Слайд 32: CSS Working Group -->
+	<section class="slide">
+		<h2>CSS Working Group</h2>
+		<p>Отслеживает юзкейсы, где разработчики используют JS для стилей</p>
+		<p class="big">И переносит эту логику в CSS 🎯</p>
+	</section>
+
+	<!-- Слайд 33: Материалы -->
+	<section class="slide" id="links">
+		<h2>Полезные материалы</h2>
+		<div class="columns two">
+      <ul>
+        <li><a href="https://drafts.csswg.org/css-values-5/#if-notation">CSS Values 5 Spec (CSSWG)</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/if">if() Reference (MDN)</a></li>
+        <li><a href="https://developer.chrome.com/blog/if-article">CSS conditionals with if() (Una Kravets)</a></li>
+        <li><a href="https://blog.logrocket.com/css-if-function-conditional-styling-2025/">Should you use if()?</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://medium.com/@karstenbiedermann/the-css-if-function-has-arrived-152115ab2115">CSS if() Has Arrived!</a></li>
+        <li><a href="https://www.youtube.com/watch?v=fTdqR9ZmHHU">CSS if() is here! (Kevin Powell)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=A2_5rdt_-HM">CSS IF function </a></li>
+      </ul>
+		</div>
+	</section>
+
+	<!-- Слайд 34: Финал -->
+	<section class="slide" id="final">
+		<h2 class="shout">Спасибо! 🎄</h2>
+		<p class="final-text">С наступающим Новым Годом!</p>
+	</section>
+
+	<footer class="badge">
+		<a href="https://doka.guide">Дока</a>
+	</footer>
+
+	<div class="santa-sleigh">
+		<img src="images/santa.svg" alt="Santa" width="80" height="40">
+	</div>
+
+	<div class="progress"></div>
+
+	<script src="node_modules/@shower/core/dist/shower.js"></script>
+	<script>
+		// Синхронизация саней Санты с прогрессом
+		function updateSantaPosition() {
+			const progress = document.querySelector('.progress');
+			const santa = document.querySelector('.santa-sleigh');
+
+			if (progress && santa) {
+				// Shower задаёт width прямо на .progress
+				const width = progress.style.width || '0%';
+				santa.style.left = width;
+			}
+		}
+
+		// Запускаем обновление
+		window.addEventListener('load', () => {
+			setInterval(updateSantaPosition, 100);
+		});
+	</script>
+</body>
+</html>

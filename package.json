@@ -1,0 +1,14 @@
+{
+  "name": "tbilisi-js-what-if",
+  "version": "1.0.0",
+  "description": "Презентация «What? if()?» для Tbilisi JS 28.12.2025",
+  "scripts": {
+    "start": "npx @shower/cli serve",
+    "bundle": "npx @shower/cli bundle",
+    "publish": "npx @shower/cli publish"
+  },
+  "dependencies": {
+    "@shower/core": "^3.3.0",
+    "@shower/ribbon": "^3.2.0"
+  }
+}
