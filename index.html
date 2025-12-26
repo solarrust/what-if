@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What? if()? - Tbilisi JS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/monokai.css">
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-transform: none;
+        }
+        .reveal pre code {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Title Slide -->
+            <section>
+                <h1>What? if()?</h1>
+                <p>Tbilisi JS</p>
+                <p>28.12.2025</p>
+            </section>
+
+            <!-- Introduction -->
+            <section>
+                <h2>About This Talk</h2>
+                <p>Exploring conditional statements and their impact on code quality</p>
+            </section>
+
+            <!-- The Basics -->
+            <section>
+                <h2>The Simple if()</h2>
+                <pre><code class="javascript" data-trim>
+if (condition) {
+    // do something
+}
+                </code></pre>
+            </section>
+
+            <!-- Common Patterns -->
+            <section>
+                <h2>Common Patterns</h2>
+                <pre><code class="javascript" data-trim>
+// Guard clauses
+if (!isValid) {
+    return;
+}
+
+// Early returns
+if (error) {
+    throw new Error('Something went wrong');
+}
+                </code></pre>
+            </section>
+
+            <!-- Nested Conditionals -->
+            <section>
+                <h2>The Problem: Nested Conditions</h2>
+                <pre><code class="javascript" data-trim>
+if (user) {
+    if (user.isActive) {
+        if (user.hasPermission) {
+            // do something
+        }
+    }
+}
+                </code></pre>
+            </section>
+
+            <!-- Better Approach -->
+            <section>
+                <h2>Better: Guard Clauses</h2>
+                <pre><code class="javascript" data-trim>
+if (!user) return;
+if (!user.isActive) return;
+if (!user.hasPermission) return;
+
+// do something
+                </code></pre>
+            </section>
+
+            <!-- Ternary Operators -->
+            <section>
+                <h2>Ternary Operators</h2>
+                <pre><code class="javascript" data-trim>
+// Simple case
+const result = condition ? 'yes' : 'no';
+
+// Avoid nesting
+const bad = a ? b ? c : d : e;
+
+// Use if/else instead
+let good;
+if (a) {
+    good = b ? c : d;
+} else {
+    good = e;
+}
+                </code></pre>
+            </section>
+
+            <!-- Switch Statements -->
+            <section>
+                <h2>Switch vs If-Else</h2>
+                <pre><code class="javascript" data-trim>
+switch (type) {
+    case 'admin':
+        return handleAdmin();
+    case 'user':
+        return handleUser();
+    default:
+        return handleGuest();
+}
+                </code></pre>
+            </section>
+
+            <!-- Modern Alternatives -->
+            <section>
+                <h2>Modern Alternatives</h2>
+                <pre><code class="javascript" data-trim>
+// Object lookup
+const handlers = {
+    admin: handleAdmin,
+    user: handleUser,
+    guest: handleGuest
+};
+
+const handler = handlers[type] || handlers.guest;
+handler();
+                </code></pre>
+            </section>
+
+            <!-- Optional Chaining -->
+            <section>
+                <h2>Optional Chaining</h2>
+                <pre><code class="javascript" data-trim>
+// Before
+if (user && user.address && user.address.city) {
+    console.log(user.address.city);
+}
+
+// After
+console.log(user?.address?.city);
+                </code></pre>
+            </section>
+
+            <!-- Nullish Coalescing -->
+            <section>
+                <h2>Nullish Coalescing</h2>
+                <pre><code class="javascript" data-trim>
+// Before
+const value = data !== null && data !== undefined 
+    ? data 
+    : 'default';
+
+// After
+const value = data ?? 'default';
+                </code></pre>
+            </section>
+
+            <!-- Best Practices -->
+            <section>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li>Keep conditions simple and readable</li>
+                    <li>Use guard clauses for early returns</li>
+                    <li>Avoid deep nesting</li>
+                    <li>Consider modern alternatives</li>
+                    <li>Write self-documenting code</li>
+                </ul>
+            </section>
+
+            <!-- Thank You -->
+            <section>
+                <h1>Thank You!</h1>
+                <p>Questions?</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealHighlight, RevealNotes],
+            transition: 'slide',
+            backgroundTransition: 'fade'
+        });
+    </script>
+</body>
+</html>
